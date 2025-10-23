@@ -18,6 +18,9 @@
                 $("#btn").click(function(e) {
                     main();
                 });
+                $("#btn2").click(function(e) {
+                    reset();
+                });
             });
 
             function main() {
@@ -25,6 +28,52 @@
                 $("#disp1").css("font-size", "x-large");
                 $("#disp1").css("font-family", "fantasy");
                 $("#disp1").css("background-color", "lightgray");
+                var msg="Hello, JavaScript!";
+                msg += "<br>";
+                msg += "This is Monaca.";
+                $("#disp1").html(msg);
+
+                var a=0;
+                var txt="";
+                txt += "a: " + a + "<br>";
+                if (a=1) {
+                    txt += "TRUE<br>";
+                } else {
+                    txt += "FALSE<br>";
+                }
+                txt += "a: " + a +"<br>";
+                $("#disp2").html(txt);
+                
+                
+                let txt1 = "";
+                let pointA = [5, 2];
+                txt1 += "x:" + pointA[0] +
+                ",y:" + pointA[1] + "<br>";
+                for(let i=0; i<pointA.length; i++) {
+                    pointA[i]+=5;
+                }
+                txt1 += "x:" + pointA[0] +
+                ",y:" + pointA[1] + "<br>";
+                $("#disp1").html(txt1); 
+                let txt2 = "";
+                let pointH = {x:5, y:2};
+                txt2 += "x:" + pointH["x"] +
+                ",y:" + pointH["y"] + "<br>";
+                for(let key in pointH) {
+                pointH[key]+=5;
+                }
+                txt2 += "x:" + pointH["x"] +
+                ",y:" + pointH["y"] + "<br>";
+                $("#disp2").html(txt2)
+
+            }
+
+            function reset() {
+                $("#disp1").html("DISPLAY 1");
+                $("#disp2").html("DISPLAY 2");
+                $("#disp1").css("font-size", 20);
+                $("#disp1").css("font-family", "normal");
+                $("#disp1").css("background-color", "white");
             }
         </script>
     </head>
@@ -33,5 +82,6 @@
         <div id="disp1" class="out">DISPLAY 1</div>
         <div id="disp2" class="out">DISPLAY 2</div>
         <button id="btn">Run</button>
+        <button id="btn2">Reset</button>
     </body>
 </html>
